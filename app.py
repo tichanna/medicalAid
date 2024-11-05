@@ -15,6 +15,12 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 from joblib import dump  # Import joblib to save models
 
+with st.sidebar:
+    st.image("https://github.com/tichanna/medicalAid/blob/main/ahfoz.jpeg", width=150)  # Replace with your logo URL
+    st.title("App Info")
+    st.write("This app predicts medical insurance premiums based on health and lifestyle factors.")
+
+
 # Load your dataset
 data = pd.read_excel('https://github.com/tichanna/medicalAid/raw/main/MEDICALaID.xlsx', engine='openpyxl')
 
