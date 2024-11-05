@@ -7,9 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1J2_mzdWxAq3MwAIiIRxjQZ_SbgNWJNfU
 """
 
-!pip install streamlit
-!pip install pyngrok
-
 # Import necessary libraries
 import pandas as pd
 import numpy as np
