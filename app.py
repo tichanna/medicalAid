@@ -7,6 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/1J2_mzdWxAq3MwAIiIRxjQZ_SbgNWJNfU
 """
 
+
+
 # Import necessary libraries
 import pandas as pd
 import numpy as np
@@ -16,7 +18,7 @@ from sklearn.preprocessing import StandardScaler
 from joblib import dump  # Import joblib to save models
 
 # Load your dataset
-data = pd.read_excel('/content/MEDICALaID.xlsx')  # Adjust the path as necessary
+data = pd.read_excel('https://github.com/tichanna/medicalAid/blob/main/MEDICALaID.xlsx')  # Adjust the path as necessary
 
 # Prepare your features and target variable
 X = data.drop('PremiumPrice', axis=1)
