@@ -77,6 +77,16 @@ if st.button("Predict Premium Price"):
     # Scale the new data
     new_data_scaled = scaler.transform(new_data)
 
+col1, col2 = st.columns(2)
+with col1:
+    age = st.number_input("Age", min_value=0, max_value=120, value=30)
+    diabetes = st.selectbox("Diabetes (1 if Yes, 0 if No)", [0, 1])
+
+with col2:
+    height = st.number_input("Height (cm)", min_value=0, max_value=250, value=175)
+    weight = st.number_input("Weight (kg)", min_value=0, max_value=300, value=70)
+
+    
     # Predict the premium price
     premium_prediction = model.predict(new_data_scaled)
     st.success(f'Predicted Premium Price: ZIG{premium_prediction[0]:.2f}')
