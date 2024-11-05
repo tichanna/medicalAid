@@ -44,7 +44,7 @@ dump(scaler, 'scaler.joblib')
 import streamlit as st
 from joblib import load
 with st.sidebar:
-    st.image("https://github.com/tichanna/medicalAid/blob/main/ahfoz.jpeg", width=150)  # Replace with your logo URL
+    st.image("https://github.com/tichanna/medicalAid/blob/main/ahfoz.JPEG", width=150)  # Replace with your logo URL
     st.title("App Info")
     st.write("This app predicts medical insurance premiums based on health and lifestyle factors.")
 
