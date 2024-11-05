@@ -48,7 +48,7 @@ from joblib import load
 background_style = """
     <style>
     .stApp {
-        background-image: url("https://example.com/your-image.jpg");
+        background-image: url("https://github.com/tichanna/medicalAid/blob/main/ahfoz.jpeg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
