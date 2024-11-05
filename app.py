@@ -52,8 +52,10 @@ dump(scaler, 'scaler.joblib')
  from joblib import load
 # 
 # # Load the trained model and scaler
- model = load('random_forest_model.joblib')
- scaler = load('scaler.joblib')
+ with st.spinner('Loading model...'):
+    model = load('random_forest_model.joblib')
+    scaler = load('scaler.joblib')
+
 # 
 # # Function to calculate BMI
  def calculate_bmi(weight, height):
