@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1J2_mzdWxAq3MwAIiIRxjQZ_SbgNWJNfU
 """
 
-
-
 # Import necessary libraries
 import pandas as pd
 import numpy as np
@@ -18,9 +16,7 @@ from sklearn.preprocessing import StandardScaler
 from joblib import dump  # Import joblib to save models
 
 # Load your dataset
-# Load your dataset
 data = pd.read_excel('https://github.com/tichanna/medicalAid/raw/main/MEDICALaID.xlsx', engine='openpyxl')
-
 
 # Prepare your features and target variable
 X = data.drop('PremiumPrice', axis=1)
@@ -42,14 +38,10 @@ model.fit(X_train_scaled, y_train)
 dump(model, 'random_forest_model.joblib')
 dump(scaler, 'scaler.joblib')
 
-# Commented out IPython magic to ensure Python compatibility.
-# %%writefile app.py
+# Streamlit app
 import streamlit as st
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.preprocessing import StandardScaler
 from joblib import load
-# 
-# # Load the trained model and scaler
+
 # Load the trained model and scaler
 model = load('random_forest_model.joblib')
 scaler = load('scaler.joblib')
@@ -75,12 +67,12 @@ surgeries = st.number_input("Number of Major Surgeries", min_value=0, value=0)
 
 # When the button is clicked
 if st.button("Predict Premium Price"):
-    # Calculate BMI
+    # Calculate BMI (optional, but not used in prediction)
     bmi = calculate_bmi(weight, height)
 
-    # Create the input array for prediction
+    # Create the input array for prediction (without BMI)
     new_data = np.array([[age, diabetes, blood_pressure, transplants, chronic_diseases,
-                          height, weight, allergies, cancer_history, surgeries, bmi]])
+                          height, weight, allergies, cancer_history, surgeries]])
 
     # Scale the new data
     new_data_scaled = scaler.transform(new_data)
