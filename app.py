@@ -54,13 +54,22 @@ def calculate_bmi(weight, height):
 st.title("Medical Aid Premium Predictor")
 
 # User inputs
-age = st.number_input("Age", min_value=0, max_value=120, value=30)
-diabetes = st.selectbox("Diabetes (1 if Yes, 0 if No)", [0, 1])
+col1, col2 = st.columns(2)
+with col1:
+    age = st.number_input("Age", min_value=0, max_value=120, value=30)
+    diabetes = st.selectbox("Diabetes (1 if Yes, 0 if No)", [0, 1])
+
+with col2:
+    height = st.number_input("Height (cm)", min_value=0, max_value=250, value=175)
+    weight = st.number_input("Weight (kg)", min_value=0, max_value=300, value=70)
+
+#age = st.number_input("Age", min_value=0, max_value=120, value=30)
+#diabetes = st.selectbox("Diabetes (1 if Yes, 0 if No)", [0, 1])
 blood_pressure = st.selectbox("Blood Pressure Problems (1 if Yes, 0 if No)", [0, 1])
 transplants = st.selectbox("Any Transplants (1 if Yes, 0 if No)", [0, 1])
 chronic_diseases = st.selectbox("Any Chronic Diseases (1 if Yes, 0 if No)", [0, 1])
-height = st.number_input("Height (cm)", min_value=0, max_value=250, value=175)
-weight = st.number_input("Weight (kg)", min_value=0, max_value=300, value=70)
+#height = st.number_input("Height (cm)", min_value=0, max_value=250, value=175)
+#weight = st.number_input("Weight (kg)", min_value=0, max_value=300, value=70)
 allergies = st.selectbox("Known Allergies (1 if Yes, 0 if No)", [0, 1])
 cancer_history = st.selectbox("History of Cancer in Family (1 if Yes, 0 if No)", [0, 1])
 surgeries = st.number_input("Number of Major Surgeries", min_value=0, value=0)
@@ -77,14 +86,6 @@ if st.button("Predict Premium Price"):
     # Scale the new data
     new_data_scaled = scaler.transform(new_data)
 
-col1, col2 = st.columns(2)
-with col1:
-    age = st.number_input("Age", min_value=0, max_value=120, value=30)
-    diabetes = st.selectbox("Diabetes (1 if Yes, 0 if No)", [0, 1])
-
-with col2:
-    height = st.number_input("Height (cm)", min_value=0, max_value=250, value=175)
-    weight = st.number_input("Weight (kg)", min_value=0, max_value=300, value=70)
 
     
     # Predict the premium price
