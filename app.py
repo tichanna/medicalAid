@@ -59,7 +59,7 @@ def calculate_bmi(weight, height):
     return weight / (height / 100) ** 2
 
 # Streamlit app layout
-st.title("Medical Insurance Premium Predictor")
+st.title("Medical Aid Premium Predictor")
 
 # User inputs
 age = st.number_input("Age", min_value=0, max_value=120, value=30)
