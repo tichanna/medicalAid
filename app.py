@@ -44,10 +44,10 @@ dump(scaler, 'scaler.joblib')
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
- import streamlit as st
- from sklearn.ensemble import RandomForestRegressor
- from sklearn.preprocessing import StandardScaler
- from joblib import load
+import streamlit as st
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import StandardScaler
+from joblib import load
 # 
 # # Load the trained model and scaler
 # Load the trained model and scaler
