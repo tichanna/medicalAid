@@ -18,7 +18,9 @@ from sklearn.preprocessing import StandardScaler
 from joblib import dump  # Import joblib to save models
 
 # Load your dataset
-data = pd.read_excel('https://github.com/tichanna/medicalAid/blob/main/MEDICALaID.xlsx')  # Adjust the path as necessary
+# Load your dataset
+data = pd.read_excel('https://github.com/tichanna/medicalAid/raw/main/MEDICALaID.xlsx', engine='openpyxl')
+
 
 # Prepare your features and target variable
 X = data.drop('PremiumPrice', axis=1)
