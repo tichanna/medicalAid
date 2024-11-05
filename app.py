@@ -52,44 +52,41 @@ dump(scaler, 'scaler.joblib')
  from joblib import load
 # 
 # # Load the trained model and scaler
- with st.spinner('Loading model...'):
-    model = load('random_forest_model.joblib')
-    scaler = load('scaler.joblib')
+# Load the trained model and scaler
+model = load('random_forest_model.joblib')
+scaler = load('scaler.joblib')
 
-# 
-# # Function to calculate BMI
- def calculate_bmi(weight, height):
-     return weight / (height / 100) ** 2
-# 
-# # Streamlit app layout
- st.title("Medical Insurance Premium Predictor")
-# 
-# # User inputs
- age = st.number_input("Age", min_value=0, max_value=120, value=30)
- diabetes = st.selectbox("Diabetes (1 if Yes, 0 if No)", [0, 1])
- blood_pressure = st.selectbox("Blood Pressure Problems (1 if Yes, 0 if No)", [0, 1])
- transplants = st.selectbox("Any Transplants (1 if Yes, 0 if No)", [0, 1])
- chronic_diseases = st.selectbox("Any Chronic Diseases (1 if Yes, 0 if No)", [0, 1])
- height = st.number_input("Height (cm)", min_value=0, max_value=250, value=175)
- weight = st.number_input("Weight (kg)", min_value=0, max_value=300, value=70)
- allergies = st.selectbox("Known Allergies (1 if Yes, 0 if No)", [0, 1])
- cancer_history = st.selectbox("History of Cancer in Family (1 if Yes, 0 if No)", [0, 1])
- surgeries = st.number_input("Number of Major Surgeries", min_value=0, value=0)
-# 
-# # When the button is clicked
- if st.button("Predict Premium Price"):
-     # Calculate BMI
-     bmi = calculate_bmi(weight, height)
-# 
-#     # Create the input array for prediction
-     new_data = np.array([[age, diabetes, blood_pressure, transplants, chronic_diseases,
-#                           height, weight, allergies, cancer_history, surgeries, bmi]])
-# 
-#     # Scale the new data
-     new_data_scaled = scaler.transform(new_data)
-# 
-#     # Predict the premium price
-     premium_prediction = model.predict(new_data_scaled)
-     st.success(f'Predicted Premium Price: ${premium_prediction[0]:.2f}')
-#
+# Function to calculate BMI
+def calculate_bmi(weight, height):
+    return weight / (height / 100) ** 2
 
+# Streamlit app layout
+st.title("Medical Insurance Premium Predictor")
+
+# User inputs
+age = st.number_input("Age", min_value=0, max_value=120, value=30)
+diabetes = st.selectbox("Diabetes (1 if Yes, 0 if No)", [0, 1])
+blood_pressure = st.selectbox("Blood Pressure Problems (1 if Yes, 0 if No)", [0, 1])
+transplants = st.selectbox("Any Transplants (1 if Yes, 0 if No)", [0, 1])
+chronic_diseases = st.selectbox("Any Chronic Diseases (1 if Yes, 0 if No)", [0, 1])
+height = st.number_input("Height (cm)", min_value=0, max_value=250, value=175)
+weight = st.number_input("Weight (kg)", min_value=0, max_value=300, value=70)
+allergies = st.selectbox("Known Allergies (1 if Yes, 0 if No)", [0, 1])
+cancer_history = st.selectbox("History of Cancer in Family (1 if Yes, 0 if No)", [0, 1])
+surgeries = st.number_input("Number of Major Surgeries", min_value=0, value=0)
+
+# When the button is clicked
+if st.button("Predict Premium Price"):
+    # Calculate BMI
+    bmi = calculate_bmi(weight, height)
+
+    # Create the input array for prediction
+    new_data = np.array([[age, diabetes, blood_pressure, transplants, chronic_diseases,
+                          height, weight, allergies, cancer_history, surgeries, bmi]])
+
+    # Scale the new data
+    new_data_scaled = scaler.transform(new_data)
+
+    # Predict the premium price
+    premium_prediction = model.predict(new_data_scaled)
+    st.success(f'Predicted Premium Price: ${premium_prediction[0]:.2f}')
