@@ -42,6 +42,25 @@ dump(scaler, 'scaler.joblib')
 import streamlit as st
 from joblib import load
 
+#import streamlit as st
+
+# CSS to add a background image
+background_style = """
+    <style>
+    .stApp {
+        background-image: url("https://example.com/your-image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
+    """
+
+# Inject CSS into Streamlit app
+st.markdown(background_style, unsafe_allow_html=True)
+
+
+
 # Load the trained model and scaler
 model = load('random_forest_model.joblib')
 scaler = load('scaler.joblib')
