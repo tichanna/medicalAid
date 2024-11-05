@@ -15,10 +15,6 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 from joblib import dump  # Import joblib to save models
 
-with st.sidebar:
-    st.image("https://github.com/tichanna/medicalAid/blob/main/ahfoz.jpeg", width=150)  # Replace with your logo URL
-    st.title("App Info")
-    st.write("This app predicts medical insurance premiums based on health and lifestyle factors.")
 
 
 # Load your dataset
@@ -47,6 +43,10 @@ dump(scaler, 'scaler.joblib')
 # Streamlit app
 import streamlit as st
 from joblib import load
+with st.sidebar:
+    st.image("https://github.com/tichanna/medicalAid/blob/main/ahfoz.jpeg", width=150)  # Replace with your logo URL
+    st.title("App Info")
+    st.write("This app predicts medical insurance premiums based on health and lifestyle factors.")
 
 #import streamlit as st
 
