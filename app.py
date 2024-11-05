@@ -79,4 +79,4 @@ if st.button("Predict Premium Price"):
 
     # Predict the premium price
     premium_prediction = model.predict(new_data_scaled)
-    st.success(f'Predicted Premium Price: ${premium_prediction[0]:.2f}')
+    st.success(f'Predicted Premium Price: ZIG{premium_prediction[0]:.2f}')
